@@ -15,8 +15,27 @@ export class AuthService {
     ]),
     Password: new FormControl("", [
       Validators.required,
-    ])
+    ]),
   });
+  //SignUp dataModel
+  user = new FormGroup({
+    StoreName: new FormControl('', Validators.required),
+    OwnerName: new FormControl('', Validators.required),
+    PhoneNumber: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(10),
+      Validators.minLength(10),
+    ]),
+    StoreCategory: new FormControl(''),
+    StoreLocation: new FormControl(''),
+    Password: new FormControl(""),
+    Email: new FormControl("",
+    ),
+  });
+
+
+
+
   userId: string = "no user";
   constructor(
     private toastCtrl: ToastController,
@@ -42,6 +61,13 @@ export class AuthService {
         })
     });
   }
+
+
+  signUp(signUp) {
+    console.log(signUp);
+
+  }
+
 
   isLoggedIn() {
 

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ChangePassComponent } from './Components/Auth/change-pass/change-pass.component';
-import { SingUpComponent } from './Components/Auth/sing-up/sing-up.component';
 import { NotVerifiedComponent } from './Components/Extra/not-verified/not-verified.component';
 import { SettingsComponent } from './Components/Extra/settings/settings.component';
 import { VendorBannerComponent } from './Components/Extra/vendor-banner/vendor-banner.component';
@@ -15,6 +14,7 @@ import { ProfileComponent } from './Components/MainPages/profile/profile.compone
 import { SalesComponent } from './Components/MainPages/sales/sales.component';
 import { NotificationsComponent } from './Components/Notifications/notifications/notifications.component';
 import { FaqsComponent } from './Components/FAQS/faqs/faqs.component';
+import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
 
 
 const routes: Routes = [
@@ -37,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'sign-up',
-    component:SingUpComponent
+    component:SignUpComponent
   },
   {
     path: 'notVerified',

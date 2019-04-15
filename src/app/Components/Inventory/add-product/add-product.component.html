@@ -1,0 +1,113 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Add Product</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-md="6" offset-md="3">
+                <ion-card>
+                    <ion-card-content>
+                        {{store | json}}
+                        <form [formGroup]="this.inventService.product">
+
+
+                            <ion-item>
+                                <ion-label position="floating">Product Name</ion-label>
+                                <ion-input type="text" formControlName="Name"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">Select Category</ion-label>
+                                <ion-select formControlName="CategoryKey" (ionChange)="getSubCats()">
+                                    <ion-select-option *ngFor="let c of cats | async" [value]="c.key">
+                                        {{c.payload.val().Name}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                            <ion-item *ngIf="this.inventService.product.value.CategoryKey">
+                                <ion-label position="floating">Select Sub Category</ion-label>
+                                <ion-select formControlName="SubCategoryKey" (ionChange)="getSubCatItems()">
+                                    <ion-select-option *ngFor="let sc of subCats" [value]="sc.key">{{sc.Name}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+
+                            <ion-item *ngIf="this.inventService.product.value.SubCategoryKey">
+                                <ion-label position="floating">Select Sub Category Item</ion-label>
+                                <ion-select formControlName="SubCategoryItemKey">
+                                    <ion-select-option *ngFor="let sci of SubCatItem" [value]="sci">{{sci.Name}}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+
+
+                            <ion-item>
+                                <ion-label position="floating">Brand Name</ion-label>
+                                <ion-input type="text" formControlName="BrandName"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">Quantity</ion-label>
+                                <ion-input type="number" formControlName="Quantity"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">Price</ion-label>
+                                <ion-input type="number" formControlName="Price"></ion-input>
+                            </ion-item>
+
+
+                            <ion-item>
+                                <ion-label position="floating">Color</ion-label>
+                                <ion-input type="text" formControlName="Color" placeholder="Enter the Color">
+                                </ion-input>
+                            </ion-item>
+
+
+                            <ion-item>
+                                <ion-label position="floating">Size</ion-label>
+                                <ion-input type="text" formControlName="Size" placeholder="Enter the Size"></ion-input>
+                            </ion-item>
+
+
+
+
+
+                            <!-- Image Addition  -->
+                            <ion-item class="selects" *ngIf="!img1">
+                                <!-- <ion-label color="whiter">Select Image</ion-label> -->
+                                <ion-button class="ion-margin">Select Image</ion-button>
+                                <ion-input type="file" (change)="fileChange($event)"
+                                    accept="image/x-png,image/gif,image/jpeg" id="file-input" style="opacity: 0"
+                                    #fileInp></ion-input>
+                            </ion-item>
+
+                            <ion-item *ngIf="img1">
+                                <img [src]="img1" class="imgView" />
+                                <div class="editBtns">
+                                    <ion-button class="btnTrash" color="danger" (click)="removeImage()">
+                                        Remove
+                                    </ion-button>
+                                </div>
+                            </ion-item>
+                            <!-- Image Addition Ended -->
+
+                            <ion-button float-right class="ion-margin-top" (click)="addProduct()">Add Product
+                            </ion-button>
+                        </form>
+
+                    </ion-card-content>
+                </ion-card>
+
+
+
+
+
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>

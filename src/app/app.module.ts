@@ -17,7 +17,7 @@ import { firebaseCred } from './firebaseCred';
 
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { ChangePassComponent } from './Components/Auth/change-pass/change-pass.component';
-import { SingUpComponent } from './Components/Auth/sing-up/sing-up.component';
+import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
 import { NotVerifiedComponent } from './Components/Extra/not-verified/not-verified.component';
 import { SettingsComponent } from './Components/Extra/settings/settings.component';
 import { VendorBannerComponent } from './Components/Extra/vendor-banner/vendor-banner.component';
@@ -43,6 +43,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { NotifyPopComponent } from './Components/Notifications/notify-pop/notify-pop.component';
 import { MainTopBarComponent } from './Components/UI/main-top-bar/main-top-bar.component';
 import { SpinnerComponent } from './Components/UI/spinner/spinner.component';
+import { InventoryService } from './Services/Inventory/inventory.service';
+
 
 firebase.initializeApp(firebaseCred);
 
@@ -51,7 +53,7 @@ firebase.initializeApp(firebaseCred);
     DashboardComponent,
     LoginComponent,
     ChangePassComponent,
-    SingUpComponent,
+     SignUpComponent,
     NotVerifiedComponent,
     SettingsComponent,
     VendorBannerComponent,
@@ -88,7 +90,10 @@ firebase.initializeApp(firebaseCred);
     AuthService,
     OrderService,
     SalesService,
+    InventoryService,
     NotificationService,
+  
+
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
