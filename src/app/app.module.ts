@@ -39,32 +39,40 @@ import { SalesComponent } from './Components/MainPages/sales/sales.component';
 
 import { NotificationsComponent } from './Components/Notifications/notifications/notifications.component';
 import { FaqsComponent } from './Components/FAQS/faqs/faqs.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { NotifyPopComponent } from './Components/Notifications/notify-pop/notify-pop.component';
+import { MainTopBarComponent } from './Components/UI/main-top-bar/main-top-bar.component';
+import { SpinnerComponent } from './Components/UI/spinner/spinner.component';
+
 firebase.initializeApp(firebaseCred);
 
 @NgModule({
   declarations: [AppComponent,
-  DashboardComponent,
-  LoginComponent,
-  ChangePassComponent,
-  SingUpComponent,
-  NotVerifiedComponent,
-  SettingsComponent,
-  VendorBannerComponent,
- FaqsComponent,
-  
- 
-  AddProductComponent,
-  ViewBarCodeComponent,
-  InventoryComponent,
-  OrderComponent,
-  ProfileComponent,
-  SalesComponent,
+    DashboardComponent,
+    LoginComponent,
+    ChangePassComponent,
+    SingUpComponent,
+    NotVerifiedComponent,
+    SettingsComponent,
+    VendorBannerComponent,
+    FaqsComponent,
+    AddProductComponent,
+    ViewBarCodeComponent,
+    InventoryComponent,
+    OrderComponent,
+    ProfileComponent,
+    SalesComponent,
+    NotificationsComponent,
+    NotifyPopComponent,
+    MainTopBarComponent,
+    SpinnerComponent
+  ],
+  entryComponents: [
+    NotifyPopComponent,
+    MainTopBarComponent,
+    SpinnerComponent,
 
-   NotificationsComponent
-  
-
-],
-  entryComponents: [],
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -72,6 +80,7 @@ firebase.initializeApp(firebaseCred);
     AngularFireModule.initializeApp(firebaseCred),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    ReactiveFormsModule,
   ],
   providers: [
     StatusBar,
@@ -79,7 +88,6 @@ firebase.initializeApp(firebaseCred);
     AuthService,
     OrderService,
     SalesService,
-
     NotificationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

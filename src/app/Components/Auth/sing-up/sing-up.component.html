@@ -1,3 +1,39 @@
-<p>
-  sing-up works!
-</p>
+<ion-content padding>
+  <ion-slides>
+    <ion-slide>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="4" offset-md="4">
+
+            <ion-card>
+              <ion-card-content>
+                <h1 class="signinTitle">Sign Up as ALO Vendor</h1>
+                <form [formGroup]="this.authService.user">
+
+                  <ion-item>
+                    <ion-label color="whiter" position="fixed">Email</ion-label>
+                    <ion-input type="email" formControlName="Email" autofocus></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label color="whiter" fixed>Password</ion-label>
+                    <ion-input type="password" formControlName="Password"></ion-input>
+                  </ion-item>
+
+                  <ion-button color="primary" (click)="checkData()">Sign Up</ion-button>
+
+                  <br>
+                  <ion-button fill="clear" href="/login">Already a Vendor ? Sign In</ion-button>
+                </form>
+
+              </ion-card-content>
+
+
+            </ion-card>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

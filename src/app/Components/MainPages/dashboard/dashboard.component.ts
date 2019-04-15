@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/Services/Auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,12 +7,17 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
+  
   constructor(
-    private navCtrl: NavController,
+    private authService: AuthService,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.authService.getUid().subscribe(snip => {
+      let userId = snip.uid;
+      console.log(userId);
+    });      
+  }
 
 
 
@@ -22,9 +27,6 @@ export class DashboardComponent implements OnInit {
 
 
 
-  //Top Functions
-  gtNotifications() { this.navCtrl.navigateRoot('notifications'); }
-  gtSettings() { this.navCtrl.navigateRoot('settings'); }
 
 
 }

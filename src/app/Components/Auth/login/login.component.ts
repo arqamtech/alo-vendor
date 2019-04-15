@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { AuthService } from 'src/app/Services/Auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private menuCtrl: MenuController,
+    private authService: AuthService,
+  ) {
+    this.menuCtrl.enable(false);
+  }
 
-  ngOnInit() {}
+  ngOnInit() { }
+  checkUser() {
+    if (this.authService.loginModel.valid) {
+      this.login();
+    } else {
+      this.authService.presentToast("Credentials not Valid")
+    }
 
+  }
+  login() {
+    let userTemp = this.authService.loginModel.value;
+    this.authService.login(userTemp);
+  }
 }

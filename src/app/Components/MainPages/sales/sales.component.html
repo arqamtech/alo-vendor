@@ -1,26 +1,66 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-toggle>
-        <ion-button>
-          <ion-icon slot="icon-only" name="menu"></ion-icon>
-        </ion-button>
-      </ion-menu-toggle>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button class="ion-padding-right ion-margin-right" fill="clear" icon-only (click)="gtNotifications()">
-        <ion-icon name="md-notifications"></ion-icon>
-      </ion-button>
-      <ion-button class="ion-padding-right ion-margin-right" fill="clear" icon-only (click)="gtSettings()">
-        <ion-icon name="md-settings"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-main-top-bar></app-main-top-bar>
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="4">
+        <ion-item lines="none" class="content">
+          <h1 class="title">USERS</h1>
+        </ion-item>
+      </ion-col>
 
-    <ion-item lines="none" class="content">
-      <h1 class="title">Sales</h1>
-    </ion-item>
+      <ion-col size="6" size-md="4" offset-md="4">
+        <!-- <ion-searchbar slot="end" animated placeholder="Search by name" (ionInput)="getItems(searchBar)">
+            </ion-searchbar> -->
+        <ion-searchbar placeholder="Search by name"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="10" offset-md="1">
+
+        <ion-toolbar color="primary">
+          <ion-row>
+            <ion-col size="12" size-md="2">Product Name</ion-col>
+            <ion-col size="12" size-md="2">Category</ion-col>
+            <ion-col size="12" size-md="1">Quantity</ion-col>
+            <ion-col size="12" size-md="2">Status</ion-col>
+            <ion-col size="12" size-md="1">Sales</ion-col>
+            <ion-col size="12" size-md="2">Store Name</ion-col>
+          </ion-row>
+        </ion-toolbar>
+
+        <app-spinner *ngIf="showSpinner"></app-spinner>
+
+
+        <ion-item class="mainTable" *ngFor="let p of products ">
+          <ion-col size="12" size-md="2">{{p.Name}}</ion-col>
+          <ion-col size="12" size-md="2">{{p.Category}}</ion-col>
+          <ion-col size="12" size-md="1">{{p.Quantity}}</ion-col>
+          <ion-col size="12" size-md="2">{{p.Status}}</ion-col>
+          <ion-col size="12" size-md="1">{{p.Sales}}</ion-col>
+          <ion-col size="12" size-md="2">{{p.StoreName}}</ion-col>
+
+          <ion-col size="12" size-md="1">
+            <a [href]="p.ImageUrl" target="_blank">
+              <ion-button fill="clear">
+                <ion-icon name="ios-image"></ion-icon>
+              </ion-button>
+            </a>
+          </ion-col>
+
+          <ion-col size="12" size-md="1">
+            <ion-button fill="clear" (click)="sellConfirm(p)">
+              Sell
+            </ion-button>
+          </ion-col>
+
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
 </ion-content>
-  

@@ -1,0 +1,7 @@
+<ion-list>
+  <ion-item *ngFor="let n of notis | async" href="/notifications">
+    {{n.payload.val().Name}}
+  </ion-item>
+  <ion-button *ngIf="notisLength" href="/notifications" fill="clear" expand="full" (click)="gtNotis()">View All
+  </ion-button>
+</ion-list>
