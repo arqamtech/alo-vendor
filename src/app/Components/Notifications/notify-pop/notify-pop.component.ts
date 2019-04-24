@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NotificationService } from 'src/app/Services/Notifications/notification.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-notify-pop',
@@ -10,8 +11,10 @@ import { NotificationService } from 'src/app/Services/Notifications/notification
 export class NotifyPopComponent implements OnInit {
   notis: Observable<any>;
   showSpinner: boolean = true;
+
   constructor(
     private notiService: NotificationService,
+    private navCtrl:NavController
   ) { }
 
   ngOnInit() {
@@ -20,4 +23,12 @@ export class NotifyPopComponent implements OnInit {
     // this.notis.subscribe(() => this.showSpinner = false);
   }
 
+
+  getNotis(){
+   
+  }
+  viewAll(){
+    this.navCtrl.navigateRoot('notifications');
+  }
 }
+

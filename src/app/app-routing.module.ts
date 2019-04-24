@@ -15,6 +15,7 @@ import { SalesComponent } from './Components/MainPages/sales/sales.component';
 import { NotificationsComponent } from './Components/Notifications/notifications/notifications.component';
 import { FaqsComponent } from './Components/FAQS/faqs/faqs.component';
 import { SignUpComponent } from './Components/Auth/sign-up/sign-up.component';
+import { NotifyPopComponent } from './Components/Notifications/notify-pop/notify-pop.component';
 
 
 const routes: Routes = [
@@ -86,9 +87,14 @@ const routes: Routes = [
   {
     path: 'notifications',
     component:NotificationsComponent
+
   },
  
-
+//  {
+//     path: 'notify',
+//     component:NotifyPopComponent
+    
+//   },
  
  
 
