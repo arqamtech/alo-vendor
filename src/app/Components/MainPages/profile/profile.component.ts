@@ -17,7 +17,9 @@ export class ProfileComponent implements OnInit {
     private db: AngularFireDatabase
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getProfile();
+  }
 
 
   getProfile() {
@@ -26,6 +28,7 @@ export class ProfileComponent implements OnInit {
 
       this.db.object(`Seller Data/Sellers/${userId}`).snapshotChanges().subscribe(snap => {
         this.store = snap.payload.val();
+        console.log(this.store)
       });
 
 
@@ -33,4 +36,8 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  // gtaddBanner() {
+  //   const modal = this.modalController.create(VendorBannerPage)
+  //   modal.present();
+  // }
 }

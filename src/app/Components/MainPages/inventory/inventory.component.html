@@ -4,4 +4,59 @@
   <ion-item lines="none" class="content">
     <h1 class="title">Inventory</h1>
   </ion-item>
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="10" offset-md="1">
+
+        <ion-toolbar color="primary">
+          <ion-row>
+            <ion-col size="12" size-md="2">Product Name</ion-col>
+            <ion-col size="12" size-md="2">Category</ion-col>
+            <ion-col size="12" size-md="1">Quantity</ion-col>
+            <ion-col size="12" size-md="1">Status</ion-col>
+            <ion-col size="12" size-md="1">Sales</ion-col>
+            <!-- <ion-col size="12" size-md="2">Store Name</ion-col> -->
+          </ion-row>
+        </ion-toolbar>
+
+        <app-spinner *ngIf="showSpinner"></app-spinner>
+
+
+        <ion-item class="mainTable" *ngFor="let p of prods ">
+          <ion-col size="12" size-md="2">{{p.Name}}</ion-col>
+          <ion-col size="12" size-md="2">{{p.Category}}</ion-col>
+          <ion-col size="12" size-md="1">{{p.Quantity}}</ion-col>
+          <ion-col size="12" size-md="1">{{p.Status}}</ion-col>
+          <ion-col size="12" size-md="1">{{p.Sales}}</ion-col>
+          <ion-col size="12" size-md="2">
+            <a [href]="p.ImageUrl" target="_blank">
+              <ion-button fill="clear">
+                <ion-icon name="ios-image"></ion-icon>
+              </ion-button>
+            </a>
+            <ion-button (click)="edit(p)" fill="clear">
+              <ion-icon name="md-create"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" (click)="delPConfirm(p)" fill="clear">
+              <ion-icon name="md-trash"></ion-icon>
+            </ion-button>
+          </ion-col>
+
+
+          <ion-col size="12" size-md="2">
+
+            <ion-button fill="clear" (click)="addInventory(p)">Add Inventory</ion-button><br />
+            <ion-button fill="clear" (click)="viewBar(p.key)">View Barcode</ion-button>
+
+          </ion-col>
+
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-bar-code',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewBarCodeComponent implements OnInit {
 
-  constructor() { }
+  prodId;
 
-  ngOnInit() {}
+  constructor(
+    private router: ActivatedRoute,
+  ) { }
+
+  ngOnInit() {
+    this.router.params.subscribe(params => {
+      this.prodId = params['id'];
+    });
+    console.log(this.prodId);
+  }
 
 }

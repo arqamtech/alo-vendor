@@ -18,26 +18,7 @@
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
-     <ion-footer class="menu-footer">
-        <ion-list >
-        <ion-button block *ngIf="full"  (click)="signOut()" color="danger">
-          Sign Out
-        </ion-button>
-        <ion-button  ion-item block icon-only *ngIf="!full" (click)="signOut()" color="danger">
-          <ion-icon name="md-power" item-left ></ion-icon>
-        </ion-button >
-  
-  
-        <ion-button  menuClose color="dark" *ngIf="full" ion-item (click)="collapse()">
-          <ion-icon class="menu-icon" item-end name="md-arrow-dropleft" color="whiter" ></ion-icon>
-        </ion-button >
-  
-        <!-- <ion-button  menuClose color="dark" *ngIf="!full" ion-item (click)="expand()">
-          <ion-icon class="menu-icon" item-end name="md-arrow-dropright" color="whiter" ></ion-icon>
-        </ion-button > -->
-        </ion-list>
-      </ion-footer>
-    </ion-menu>
+   </ion-menu>
     <ion-router-outlet main></ion-router-outlet> 
   </ion-split-pane>
 </ion-app>

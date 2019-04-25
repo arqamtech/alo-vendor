@@ -44,6 +44,7 @@ import { NotifyPopComponent } from './Components/Notifications/notify-pop/notify
 import { MainTopBarComponent } from './Components/UI/main-top-bar/main-top-bar.component';
 import { SpinnerComponent } from './Components/UI/spinner/spinner.component';
 import { InventoryService } from './Services/Inventory/inventory.service';
+import { TopPushBarComponent } from './Components/UI/top-push-bar/top-push-bar.component';
 
 
 firebase.initializeApp(firebaseCred);
@@ -53,7 +54,7 @@ firebase.initializeApp(firebaseCred);
     DashboardComponent,
     LoginComponent,
     ChangePassComponent,
-     SignUpComponent,
+    SignUpComponent,
     NotVerifiedComponent,
     SettingsComponent,
     VendorBannerComponent,
@@ -67,12 +68,14 @@ firebase.initializeApp(firebaseCred);
     NotificationsComponent,
     NotifyPopComponent,
     MainTopBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    TopPushBarComponent,
   ],
   entryComponents: [
     NotifyPopComponent,
     MainTopBarComponent,
     SpinnerComponent,
+    TopPushBarComponent,
 
   ],
   imports: [
@@ -92,7 +95,7 @@ firebase.initializeApp(firebaseCred);
     SalesService,
     InventoryService,
     NotificationService,
-  
+
 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

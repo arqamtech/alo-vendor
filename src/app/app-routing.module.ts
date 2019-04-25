@@ -64,7 +64,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'view-bar-code',
+    path: 'view-bar-code/:id',
     component:ViewBarCodeComponent
   },
 

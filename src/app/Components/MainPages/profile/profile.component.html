@@ -1,9 +1,71 @@
 <app-main-top-bar></app-main-top-bar>
 <ion-content>
-
   <ion-item lines="none" class="content">
-    <h1 class="title">Profile</h1>
+    <h1 class="title"> VENDOR Profile</h1>
   </ion-item>
+
+
+  <ion-item>
+    <ion-button class="ion-float-right ion-margin-bottom" (click)="gtaddBanner()">Edit Banner</ion-button>
+  </ion-item>
+
+  <ion-card class="bCard" *ngIf="store.Banner">
+    <img class="bImg" src="{{store.Banner}}" />
+  </ion-card>
+
+
+  <ion-card class="bCard" *ngIf="isBanner">
+    <img class="bImg" src="{{Banner}}" />
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Store Name</h3>
+        <h3 slot="end">{{store.StoreName}}</h3>
+      </ion-item>
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Owner Name</h3>
+        <h3 slot="end">{{store.OwnerName}}</h3>
+      </ion-item>
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Phone Number</h3>
+        <h3 slot="end">{{store.PhoneNumber}}</h3>
+      </ion-item>
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Store Category</h3>
+        <h3 slot="end">{{store.StoreCategory}}</h3>
+      </ion-item>
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Store Location</h3>
+        <h3 slot="end">{{store.StoreLocation}}</h3>
+      </ion-item>
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Email</h3>
+        <h3 slot="end">{{store.Email}}</h3>
+      </ion-item>
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Status</h3>
+        <h3 slot="end">{{store.Status}}</h3>
+      </ion-item>
+
+
+      <ion-item>
+        <h3 ion-text color="primary" slot="start">Created Date</h3>
+        <h3 slot="end">{{store.TimeStamp | date : 'medium'}}</h3>
+      </ion-item>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+
 </ion-content>
-  
-  

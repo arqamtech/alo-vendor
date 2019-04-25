@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first, tap } from 'rxjs/operators';
-
+import * as firebase from 'firebase';
 @Injectable({
   providedIn: 'root'
 })
@@ -67,7 +67,9 @@ export class AuthService {
     console.log(signUp);
 
   }
-
+  getUidF() {
+    return firebase.auth().currentUser.uid;
+  }
 
   isLoggedIn() {
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
-
-
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -10,23 +8,22 @@ import { MenuController } from '@ionic/angular';
 })
 export class NotificationsComponent implements OnInit {
 
-   constructor(
- 
-private menuCtrl:MenuController
- )
-  {
-    this.menuCtrl.enable(false);
-   }
-  
-  ngOnInit() {}
- 
-  maRead(n){
-   
+  constructor(
+
+    private menuCtrl: MenuController
+  ) {
+    this.menuCtrl.enable(true);
   }
 
-  viewNoti(){
+  ngOnInit() { }
+
+  maRead(n) {
 
   }
 
+  viewNoti() {
 
- }
+  }
+
+
+}
