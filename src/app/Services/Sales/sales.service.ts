@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToastController, AlertController } from '@ionic/angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { AuthService } from '../Auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class SalesService {
     public db: AngularFireDatabase,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
+    public authService: AuthService,
   ) { }
-
 
   async salesConfirm(p) {
     const alert = await this.alertCtrl.create({
@@ -82,6 +83,9 @@ export class SalesService {
 
 
   }
+
+
+
 
   async presentToast(msg) {
     const toast = await this.toastCtrl.create({

@@ -41,12 +41,17 @@ export class InventoryComponent implements OnInit {
 
 
   getProducts() {
+    this.prods = [];
+    this.prodsLoaded = [];
 
     this.authService.getUid().subscribe(snip => {
       let userId = snip.uid;
+      let tempArray = [];
 
       this.db.list(`Seller Data/Products/${userId}`).snapshotChanges().subscribe(snap => {
-        let tempArray = [];
+        tempArray = [];
+        this.prods = [];
+        this.prodsLoaded = [];
         snap.forEach(snip => {
           this.db.object(`Products/${snip.key}`).snapshotChanges().subscribe(iiSnap => {
 

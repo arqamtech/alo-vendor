@@ -45,6 +45,7 @@ import { MainTopBarComponent } from './Components/UI/main-top-bar/main-top-bar.c
 import { SpinnerComponent } from './Components/UI/spinner/spinner.component';
 import { InventoryService } from './Services/Inventory/inventory.service';
 import { TopPushBarComponent } from './Components/UI/top-push-bar/top-push-bar.component';
+import { ProductService } from './Services/Products/product.service';
 
 
 firebase.initializeApp(firebaseCred);
@@ -95,7 +96,7 @@ firebase.initializeApp(firebaseCred);
     SalesService,
     InventoryService,
     NotificationService,
-
+    ProductService,
 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

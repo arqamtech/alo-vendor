@@ -4,6 +4,7 @@ import { SalesService } from 'src/app/Services/Sales/sales.service';
 import { AuthService } from 'src/app/Services/Auth/auth.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { ProductService } from 'src/app/Services/Products/product.service';
 
 @Component({
   selector: 'app-sales',
@@ -17,9 +18,8 @@ export class SalesComponent implements OnInit {
   showSpinner: boolean = true;
 
   constructor(
-    private authService: AuthService,
     private saleService: SalesService,
-    public db: AngularFireDatabase,
+    public prodService: ProductService,
   ) { }
 
   ngOnInit() {
@@ -27,40 +27,16 @@ export class SalesComponent implements OnInit {
   }
 
   getProducts() {
-    // this.authService.getUid().subscribe(snip => {
-    //   this.products = [];
-    //   firebase.database().ref(`Seller Data/Products/${snip.uid}`).once("value", snip => {
-    //     this.products = [];
-    //     snip.forEach(snap => {
-    //       firebase.database().ref(`Products/${snap.key}`).once("value", snop => {
-    //         let temp: any = snop.val();
-    //         temp.key = snop.key;
-    //         this.products.push(temp);
-    //       });
-    //     })
-    //   })
-    //   this.showSpinner = false;
-    // });
-    this.authService.getUid().subscribe(us => {
-
-      this.db.list(`Seller Data/Products/${us.uid}`).snapshotChanges().subscribe(snap => {
-        let tempArray = [];
-
-        this.products = [];
-        snap.forEach(snip => {
-          firebase.database().ref("Products").child(snip.key).once("value", iiSnap => {
-            var temp: any = iiSnap.val();
-            temp.key = iiSnap.key;
-            tempArray.push(temp);
-          })
-          this.products = tempArray;
-          this.productsLoaded = tempArray;
-          this.showSpinner = false;
-        })
-      })
-    })
-
+    let tempArray: any;
+    this.products = [];
+    this.prodService.getProducts().then((res) => {
+      tempArray = res;
+      this.products = tempArray;
+      this.productsLoaded = tempArray;
+      this.showSpinner = false;
+    });
   }
+
 
   initializeItems(): void {
     this.products = this.productsLoaded;
